@@ -1,0 +1,418 @@
+=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grand Developer & Automation Matrix </title>
+<style>
+    :root {
+        --bg-main: #0D1117;
+        --bg-sidebar: #161B22;
+        --bg-card: #21262D;
+        --text-main: #C9D1D9;
+        --text-muted: #8B949E;
+        --accent: #58A6FF;
+        --accent-hover: #79C0FF;
+        --border: #30363D;
+        --badge-bg: #30363D;
+        --ai-highlight: #8A2BE2;
+    }
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+    nav {
+        width: 260px;
+        background-color: var(--bg-sidebar);
+        padding: 20px;
+        border-right: 1px solid var(--border);
+        overflow-y: auto;
+    }
+    nav h2 {
+        color: var(--accent);
+        font-size: 1.2rem;
+        margin-top: 0;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 10px;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    nav li {
+        margin-bottom: 15px;
+    }
+    nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
+    nav a:hover {
+        color: var(--text-main);
+    }
+    main {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;
+    }
+    h1, h2, h3 {
+        color: var(--text-main);
+    }
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 50px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+    table {
+        width: 100%;
+        min-width: 1600px;
+        border-collapse: collapse;
+        background-color: var(--bg-card);
+        font-size: 0.85rem;
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+    }
+    th {
+        background-color: #161B22;
+        color: var(--accent);
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    code {
+        background-color: rgba(110, 118, 129, 0.1);
+        padding: 3px 6px;
+        border-radius: 4px;
+        color: #7EE787;
+        font-family: 'Consolas', monospace;
+        display: inline-block;
+        margin-bottom: 4px;
+        word-break: break-all;
+    }
+    a.link-btn {
+        display: inline-block;
+        color: #ffffff;
+        background-color: #238636;
+        padding: 5px 10px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.8rem;
+        transition: background 0.2s;
+    }
+    a.link-btn:hover {
+        background-color: #2EA043;
+    }
+    .badge {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background-color: var(--badge-bg);
+        font-size: 0.75rem;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        color: #C9D1D9;
+        border: 1px solid var(--border);
+    }
+    .badge-ai {
+        background-color: var(--ai-highlight);
+        color: #FFF;
+        font-weight: bold;
+    }
+    .related {
+        color: #D2A8FF;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <h2>Ecosystem Index</h2>
+    <ul>
+        <li><a href="#automation">1. Automation & AI Agents</a></li>
+        <li><a href="#ides">2. IDEs & Editors</a></li>
+        <li><a href="#languages">3. Languages & Runtimes</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1>The Grand Developer Matrix</h1>
+    <p>A strictly formatted cross-reference of the software ecosystem, enforcing path and variable tracking for all tools, editors, language compilers, and modern AI Agent execution environments.</p>
+
+    <!-- AUTOMATION SECTION -->
+    <section id="automation">
+        <h2>1. Automation, QA Frameworks & AI Agents</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Tool & Era</th>
+                        <th style="width: 10%;">OS / Type</th>
+                        <th style="width: 25%;">Default Install / Cache Paths</th>
+                        <th style="width: 20%;">Key Environment Variables</th>
+                        <th style="width: 20%;">Cross-Relations</th>
+                        <th style="width: 13%;">Download Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Legacy to Modern Web Automation -->
+                    <tr>
+                        <td><strong>WinRunner</strong><br>(1993 - Legacy)</td>
+                        <td><span class="badge">Windows</span><br>GUI Scripting</td>
+                        <td><code>C:\Program Files\Mercury Interactive\WinRunner</code></td>
+                        <td><code>MERCURY_HOME</code></td>
+                        <td><span class="related">Lang:</span> TSL (C-Like)<br><span class="related">Replaced By:</span> QTP/UFT</td>
+                        <td><em>Deprecated</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>QTP / UFT One</strong><br>(2001)</td>
+                        <td><span class="badge">Windows</span><br>Commercial RPA</td>
+                        <td><code>C:\Program Files (x86)\Micro Focus\UFT One</code></td>
+                        <td><code>UFT_HOME</code>, <code>GUITEST_PATH</code></td>
+                        <td><span class="related">Lang:</span> VBScript<br><span class="related">IDE:</span> UFT IDE</td>
+                        <td><a href="https://www.microfocus.com/" target="_blank" class="link-btn">Micro Focus</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Selenium WebDriver</strong><br>(2004/2011)</td>
+                        <td><span class="badge">Cross-Platform</span><br>OSS Web</td>
+                        <td>Via Lang Packages (<code>node_modules</code>, <code>site-packages</code>)<br>Grid: <code>/opt/selenium/</code></td>
+                        <td><code>SELENIUM_SERVER_JAR</code>, <code>WEBDRIVER_CHROME_DRIVER</code></td>
+                        <td><span class="related">Lang:</span> Java, C#, Python, Ruby<br><span class="related">IDE:</span> Eclipse, Visual Studio</td>
+                        <td><a href="https://www.selenium.dev/downloads/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Appium</strong><br>(2012)</td>
+                        <td><span class="badge">Win</span> <span class="badge">Mac</span> <span class="badge">Linux</span><br>OSS Mobile</td>
+                        <td><code>~/.appium</code><br>NPM Global: <code>/usr/local/lib/node_modules/appium</code></td>
+                        <td><code>ANDROID_HOME</code>, <code>JAVA_HOME</code>, <code>APPIUM_HOME</code></td>
+                        <td><span class="related">Lang:</span> Polyglot (W3C Protocol)<br><span class="related">IDE:</span> Android Studio, Xcode</td>
+                        <td><a href="https://appium.io/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>UiPath</strong><br>(2013)</td>
+                        <td><span class="badge">Windows</span><br>Commercial RPA</td>
+                        <td>User: <code>%LOCALAPPDATA%\Programs\UiPath</code><br>Machine: <code>C:\Program Files\UiPath</code></td>
+                        <td><code>UIPATH_USER_SERVICE_PATH</code>, <code>UIPATH_LOG_DIR</code></td>
+                        <td><span class="related">Lang:</span> C#, VB.NET<br><span class="related">IDE:</span> UiPath Studio</td>
+                        <td><a href="https://www.uipath.com/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cypress</strong><br>(2017)</td>
+                        <td><span class="badge">Cross-Platform</span><br>OSS Web (CDP)</td>
+                        <td>Cache: <code>~/.cache/Cypress</code><br>Win: <code>%LOCALAPPDATA%\Cypress\Cache</code></td>
+                        <td><code>CYPRESS_INSTALL_BINARY</code>, <code>CYPRESS_CACHE_FOLDER</code></td>
+                        <td><span class="related">Lang:</span> JS, TypeScript<br><span class="related">IDE:</span> VS Code, WebStorm</td>
+                        <td><a href="https://www.cypress.io/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Playwright</strong><br>(2020)</td>
+                        <td><span class="badge">Cross-Platform</span><br>Microsoft OSS</td>
+                        <td>Linux/Mac: <code>~/.cache/ms-playwright</code><br>Win: <code>%USERPROFILE%\AppData\Local\ms-playwright</code></td>
+                        <td><code>PLAYWRIGHT_BROWSERS_PATH</code>, <code>PWDEBUG</code></td>
+                        <td><span class="related">Lang:</span> TS, Python, Java, C#<br><span class="related">IDE:</span> VS Code</td>
+                        <td><a href="https://playwright.dev/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+
+                    <!-- The AI Agent Era -->
+                    <tr>
+                        <td colspan="6" style="background-color: #1A1A1A; text-align: center; color: var(--accent); font-weight: bold; border-top: 2px solid var(--ai-highlight);">
+                            ↓ The AI Agentic Era (2024 - Present) ↓
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>OpenHands</strong><br>(2024)</td>
+                        <td><span class="badge badge-ai">AI Agent</span><br>Docker/Python</td>
+                        <td>Config: <code>~/.openhands/</code><br>Cache: <code>/tmp/cache</code><br>Workspace: <code>./workspace</code></td>
+                        <td><code>LLM_API_KEY</code>, <code>LLM_MODEL</code>, <code>WORKSPACE_BASE</code>, <code>SANDBOX_VOLUMES</code></td>
+                        <td><span class="related">Core:</span> Auto-executes in Docker Sandbox<br><span class="related">Ecosystem:</span> Python, LLMs</td>
+                        <td><a href="https://github.com/All-Hands-AI/OpenHands" target="_blank" class="link-btn">GitHub Repo</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Browser Use</strong><br>(2024)</td>
+                        <td><span class="badge badge-ai">AI Agent</span><br>Python Library</td>
+                        <td>Python venv: <code>.venv/Lib/site-packages/browser_use</code></td>
+                        <td><code>BROWSERLESS_TOKEN</code>, <code>OPENAI_API_KEY</code>, <code>BROWSERLESS_WS_URL</code></td>
+                        <td><span class="related">Core:</span> Playwright DOM Manipulation<br><span class="related">Ecosystem:</span> Python, Browserless Cloud</td>
+                        <td><a href="https://github.com/browser-use/browser-use" target="_blank" class="link-btn">GitHub Repo</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magentic-One</strong><br>(2024)</td>
+                        <td><span class="badge badge-ai">AI Agent</span><br>Microsoft AutoGen</td>
+                        <td>Python venv: <code>packages/autogen-magentic-one/.venv</code><br>Uses Docker Engine for execution</td>
+                        <td><code>CHAT_COMPLETION_PROVIDER</code>, <code>OPENAI_API_KEY</code>, <code>CHAT_COMPLETION_KWARGS_JSON</code></td>
+                        <td><span class="related">Core:</span> Multi-Agent Orchestrator<br><span class="related">Ecosystem:</span> AutoGen, Playwright, Docker</td>
+                        <td><a href="https://microsoft.github.io/autogen/" target="_blank" class="link-btn">Microsoft Docs</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Midscene.js</strong><br>(2024)</td>
+                        <td><span class="badge badge-ai">AI Agent</span><br>Vision-Driven UI</td>
+                        <td>NPM: <code>node_modules/@midscene</code><br>Chrome Extension Cache</td>
+                        <td><code>MIDSCENE_API_KEY</code>, <code>OPENAI_API_KEY</code> (via JSON config or Env)</td>
+                        <td><span class="related">Core:</span> Puppeteer / Playwright Wrapper<br><span class="related">Ecosystem:</span> Node.js, Chrome Extensions</td>
+                        <td><a href="https://midscenejs.com/" target="_blank" class="link-btn">Documentation</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- IDE SECTION -->
+    <section id="ides">
+        <h2>2. IDEs & Code Editors</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Tool & Year</th>
+                        <th style="width: 10%;">OS Support</th>
+                        <th style="width: 25%;">Default Install / Data Paths</th>
+                        <th style="width: 20%;">Key Environment Variables</th>
+                        <th style="width: 20%;">Cross-Relations</th>
+                        <th style="width: 13%;">Download Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Vim / Emacs</strong><br>(1991 / 1976)</td>
+                        <td><span class="badge">Win</span> <span class="badge">Mac</span> <span class="badge">Linux</span></td>
+                        <td>Linux: <code>/usr/bin/vim</code> | <code>/usr/bin/emacs</code><br>Configs: <code>~/.vimrc</code> | <code>~/.emacs.d/</code></td>
+                        <td><code>EDITOR</code>, <code>VISUAL</code>, <code>MYVIMRC</code></td>
+                        <td><span class="related">Lang:</span> C, Shell, Perl, Python<br><span class="related">Auto:</span> Bash/Make workflows</td>
+                        <td><a href="https://www.vim.org/download.php" target="_blank" class="link-btn">Download Vim</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visual Studio</strong><br>(1997)</td>
+                        <td><span class="badge">Windows</span> <span class="badge">Mac(Sunset)</span></td>
+                        <td>Win: <code>C:\Program Files\Microsoft Visual Studio\2022\...</code></td>
+                        <td><code>VSINSTALLDIR</code>, <code>DevEnvDir</code>, <code>MSBuildExtensionsPath</code></td>
+                        <td><span class="related">Lang:</span> C#, C++, F#, VB.NET<br><span class="related">Auto:</span> SpecFlow, MS Test</td>
+                        <td><a href="https://visualstudio.microsoft.com/downloads/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>IntelliJ IDEA</strong><br>(2001)</td>
+                        <td><span class="badge">Win</span> <span class="badge">Mac</span> <span class="badge">Linux</span></td>
+                        <td>Win: <code>C:\Program Files\JetBrains\IntelliJ IDEA</code><br>Mac/Linux: <code>~/.local/share/JetBrains/</code></td>
+                        <td><code>IDEA_PROPERTIES</code>, <code>JAVA_HOME</code>, <code>KOTLIN_HOME</code></td>
+                        <td><span class="related">Lang:</span> Java, Kotlin, Groovy<br><span class="related">Auto:</span> Appium, Selenium</td>
+                        <td><a href="https://www.jetbrains.com/idea/download/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>VS Code</strong><br>(2015)</td>
+                        <td><span class="badge">Win</span> <span class="badge">Mac</span> <span class="badge">Linux</span></td>
+                        <td>Win: <code>%LOCALAPPDATA%\Programs\Microsoft VS Code</code><br>Linux: <code>/usr/share/code</code></td>
+                        <td><code>VSCODE_PORTABLE</code>, <code>VSCODE_CWD</code>, <code>VSCODE_EXTENSIONS</code></td>
+                        <td><span class="related">Lang:</span> TS, JS, Python, Rust, C#, Go<br><span class="related">Auto:</span> Playwright, Cypress</td>
+                        <td><a href="https://code.visualstudio.com/Download" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cursor</strong><br>(2023)</td>
+                        <td><span class="badge">Win</span> <span class="badge">Mac</span> <span class="badge">Linux</span></td>
+                        <td>Win: <code>%LOCALAPPDATA%\Programs\cursor</code><br>Mac: <code>/Applications/Cursor.app</code></td>
+                        <td>Inherits VS Code Envs.<br>Uses <code>.cursorrules</code></td>
+                        <td><span class="related">Lang:</span> Polyglot (AI Native)<br><span class="related">Engine:</span> VS Code Fork + Claude/GPT</td>
+                        <td><a href="https://www.cursor.com/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Windsurf</strong><br>(2024)</td>
+                        <td><span class="badge">Win</span> <span class="badge">Mac</span> <span class="badge">Linux</span></td>
+                        <td>Win: <code>%LOCALAPPDATA%\Programs\Windsurf</code><br>MCP Config: <code>~/.codeium/windsurf/mcp_config.json</code></td>
+                        <td><code>HTTP_PROXY</code>, <code>JFROG_IDE_RELEASES_REPO</code>, Inherits VS Code Vars</td>
+                        <td><span class="related">Lang:</span> Polyglot (AI Native)<br><span class="related">Engine:</span> Codeium Cascade AI</td>
+                        <td><a href="https://windsurf.com/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- LANGUAGES SECTION -->
+    <section id="languages">
+        <h2>3. Programming Languages & Compilers</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Language & Year</th>
+                        <th style="width: 10%;">Ecosystem targets</th>
+                        <th style="width: 25%;">Default Runtime/Compiler Paths</th>
+                        <th style="width: 20%;">Compiler/Runtime Env Variables</th>
+                        <th style="width: 20%;">Cross-Relations</th>
+                        <th style="width: 13%;">Download Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>C / C++</strong><br>(1972 / 1985)</td>
+                        <td>Native OS, Kernels, Embedded, Unreal Engine</td>
+                        <td>Linux: <code>/usr/bin/gcc</code>, <code>/usr/bin/clang</code><br>Win: <code>C:\msys64\mingw64</code>, MSVC</td>
+                        <td><code>CC</code>, <code>CXX</code>, <code>CFLAGS</code>, <code>INCLUDE</code>, <code>LIB</code></td>
+                        <td><span class="related">IDE:</span> Vim, CLion, Visual Studio<br><span class="related">Auto:</span> GoogleTest, Catch2</td>
+                        <td><a href="https://isocpp.org/get-started" target="_blank" class="link-btn">Get Started</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python</strong><br>(1991)</td>
+                        <td>AI, Data Science, Scripting, Web (Django)</td>
+                        <td>Win: <code>%LOCALAPPDATA%\Programs\Python\Python3x</code><br>Linux: <code>/usr/bin/python3</code></td>
+                        <td><code>PYTHONPATH</code>, <code>PYTHONHOME</code>, <code>VIRTUAL_ENV</code>, <code>PIP_INDEX_URL</code></td>
+                        <td><span class="related">IDE:</span> PyCharm, VS Code, Windsurf<br><span class="related">Auto:</span> OpenHands, Browser Use</td>
+                        <td><a href="https://www.python.org/downloads/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>JavaScript / Node.js</strong><br>(1995 / 2009)</td>
+                        <td>Browser UI, Backend Services, Desktop (Electron)</td>
+                        <td>Win: <code>C:\Program Files\nodejs\</code><br>Global npm: <code>%APPDATA%\npm</code>, <code>~/.npm-global</code></td>
+                        <td><code>NODE_ENV</code>, <code>NODE_PATH</code>, <code>NPM_CONFIG_PREFIX</code></td>
+                        <td><span class="related">IDE:</span> WebStorm, VS Code<br><span class="related">Auto:</span> Cypress, Midscene.js</td>
+                        <td><a href="https://nodejs.org/" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>C#</strong><br>(2000)</td>
+                        <td>.NET Framework/Core, Unity 3D, Enterprise Win Apps</td>
+                        <td>Win: <code>C:\Program Files\dotnet\</code><br>Global Tools: <code>%USERPROFILE%\.dotnet\tools</code></td>
+                        <td><code>DOTNET_ROOT</code>, <code>DOTNET_ENVIRONMENT</code>, <code>ASPNETCORE_ENVIRONMENT</code></td>
+                        <td><span class="related">IDE:</span> Visual Studio, Rider<br><span class="related">Auto:</span> SpecFlow, Playwright (.NET)</td>
+                        <td><a href="https://dotnet.microsoft.com/en-us/download" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rust</strong><br>(2015)</td>
+                        <td>Systems, WebAssembly, Kernels (Linux), Tooling</td>
+                        <td>Via rustup: <code>~/.cargo/bin</code><br>Toolchains: <code>~/.rustup/toolchains</code></td>
+                        <td><code>CARGO_HOME</code>, <code>RUSTUP_HOME</code>, <code>RUSTFLAGS</code>, <code>RUST_BACKTRACE</code></td>
+                        <td><span class="related">IDE:</span> Zed, VS Code, CLion<br><span class="related">Auto:</span> Built-in <code>cargo test</code></td>
+                        <td><a href="https://www.rust-lang.org/tools/install" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mojo</strong><br>(2023)</td>
+                        <td>AI Hardware, GPUs, MLIR Framework</td>
+                        <td>Modular Env: <code>~/.modular/pkg/packages.modular.com_mojo</code></td>
+                        <td><code>MODULAR_HOME</code>, <code>MOJO_PYTHON_LIBRARY</code></td>
+                        <td><span class="related">IDE:</span> Cursor, VS Code<br><span class="related">Auto:</span> ML Pipelines</td>
+                        <td><a href="https://www.modular.com/mojo" target="_blank" class="link-btn">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>
