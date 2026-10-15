@@ -44,6 +44,9 @@
         height: 100dvh;
         overflow: hidden;
     }
+    body.sidebar-collapsed {
+        grid-template-columns: 64px minmax(0, 1fr);
+    }
     nav {
         grid-area: navigation;
         background-color: var(--bg-sidebar);
@@ -51,8 +54,52 @@
         border-right: 1px solid var(--border);
         overflow-y: auto;
     }
+    .sidebar-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 9px 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-card);
+        color: var(--text-main);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+    }
+    .sidebar-toggle:hover {
+        border-color: var(--accent);
+    }
+    .sidebar-toggle:focus-visible {
+        outline: 2px solid var(--accent-hover);
+        outline-offset: 2px;
+    }
+    .sidebar-toggle-icon {
+        color: var(--accent);
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+    body.sidebar-collapsed nav {
+        padding: 20px 10px;
+    }
+    body.sidebar-collapsed .sidebar-toggle {
+        justify-content: center;
+        padding: 9px 0;
+    }
+    body.sidebar-collapsed .sidebar-toggle-label,
+    body.sidebar-collapsed .section-navigation {
+        display: none;
+    }
+    body.sidebar-collapsed .sidebar-toggle-icon::before {
+        content: "›";
+    }
+    body:not(.sidebar-collapsed) .sidebar-toggle-icon::before {
+        content: "‹";
+    }
     nav details[open] {
-        height: 100%;
+        height: calc(100% - 60px);
     }
     nav summary {
         display: none;
@@ -337,6 +384,15 @@
             border-bottom: 1px solid var(--border);
             overflow: visible;
         }
+        body.sidebar-collapsed {
+            grid-template-columns: minmax(0, 1fr);
+        }
+        .sidebar-toggle {
+            display: none;
+        }
+        body.sidebar-collapsed nav .section-navigation {
+            display: block;
+        }
         nav details {
             padding: 14px 2px;
         }
@@ -393,7 +449,11 @@
 </header>
 
 <nav>
-    <details class="section-navigation" open>
+    <button class="sidebar-toggle" type="button" aria-controls="section-navigation" aria-expanded="true" aria-label="Collapse menu">
+        <span class="sidebar-toggle-icon" aria-hidden="true"></span>
+        <span class="sidebar-toggle-label">Collapse menu</span>
+    </button>
+    <details class="section-navigation" id="section-navigation" open>
         <summary>Browse sections</summary>
         <h2>Ecosystem Index</h2>
         <ul>
@@ -675,6 +735,7 @@
 
 <script>
     const sectionNavigation = document.querySelector(".section-navigation");
+    const sidebarToggle = document.querySelector(".sidebar-toggle");
     const mobileLayout = window.matchMedia("(max-width: 760px)");
     const productDialog = document.querySelector(".product-dialog");
     const productDialogTitle = document.querySelector("#product-dialog-title");
@@ -694,7 +755,20 @@
 
     function syncSectionNavigation() {
         sectionNavigation.open = !mobileLayout.matches;
+        if (mobileLayout.matches) setSidebarCollapsed(false);
     }
+
+    function setSidebarCollapsed(collapsed) {
+        document.body.classList.toggle("sidebar-collapsed", collapsed);
+        sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
+        const label = collapsed ? "Expand menu" : "Collapse menu";
+        sidebarToggle.setAttribute("aria-label", label);
+        sidebarToggle.querySelector(".sidebar-toggle-label").textContent = label;
+    }
+
+    sidebarToggle.addEventListener("click", () => {
+        setSidebarCollapsed(!document.body.classList.contains("sidebar-collapsed"));
+    });
 
     document.querySelectorAll(".product-detail-trigger").forEach(trigger => {
         trigger.addEventListener("click", () => {
