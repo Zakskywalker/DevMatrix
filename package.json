@@ -1,0 +1,13 @@
+{
+  "name": "devmatrix",
+  "private": true,
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "scrape:esolangs": "python scripts/add_esolangs.py",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}

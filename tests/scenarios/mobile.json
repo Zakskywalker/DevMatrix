@@ -1,0 +1,45 @@
+{
+  "suite": "Mobile",
+  "viewport": { "width": 390, "height": 844 },
+  "scenarios": [
+    {
+      "name": "Table view renders square cells per entity",
+      "steps": [
+        ["open", "#esolangs"],
+        ["sectionOpen", "esolangs"],
+        ["countAtLeast", "cell-esolangs", 60],
+        ["visible", "cells-esolangs"]
+      ]
+    },
+    {
+      "name": "Tapping a cell opens entity details",
+      "steps": [
+        ["open", "#esolangs"],
+        ["clickNth", "cell-esolangs", 0],
+        ["dialogOpen", "product-dialog"]
+      ]
+    },
+    {
+      "name": "Display view offers carousel and selector",
+      "steps": [
+        ["open", "#esolangs"],
+        ["click", "view-display-esolangs"],
+        ["visible", "display-esolangs-current"],
+        ["visible", "display-esolangs-select"],
+        ["click", "display-esolangs-next"],
+        ["text", "display-esolangs-current", "1+"],
+        ["hidden", "cells-esolangs"]
+      ]
+    },
+    {
+      "name": "Global search at top of page",
+      "steps": [
+        ["open"],
+        ["fill", "global-search", "befunge"],
+        ["visible", "global-results"],
+        ["click", "result-card"],
+        ["sectionOpen", "esolangs"]
+      ]
+    }
+  ]
+}

@@ -474,6 +474,7 @@
         }
     }
 </style>
+<link rel="stylesheet" href="assets/devmatrix-ui.css">
 </head>
 <body>
 
@@ -486,14 +487,16 @@
 </header>
 
 <nav>
-    <button class="sidebar-toggle" type="button" aria-controls="section-navigation" aria-expanded="true" aria-label="Collapse menu">
+    <button class="sidebar-toggle" type="button" aria-controls="section-navigation" aria-expanded="true" aria-label="Collapse" data-testid="sidebar-toggle">
         <span class="sidebar-toggle-icon" aria-hidden="true"></span>
-        <span class="sidebar-toggle-label">Collapse menu</span>
+        <span class="sidebar-toggle-label">Collapse</span>
     </button>
     <details class="section-navigation" id="section-navigation" open>
         <summary>Browse sections</summary>
-        <h2>Ecosystem Index</h2>
-        <ul>
+        <h2>Table of Contents</h2>
+        <div class="toc-node" id="toc-data">
+        <button class="toc-node-header" type="button" aria-expanded="true" aria-controls="toc-data-list" data-testid="toc-data-header">Data</button>
+        <ul id="toc-data-list">
             <li><a href="#automation">1. Automation & AI Agents</a></li>
             <li><a href="#ides">2. IDEs & Editors</a></li>
             <li><a href="#languages">3. Languages & Runtimes</a></li>
@@ -502,7 +505,9 @@
             <li><a href="#servers">6. Virtual Servers &amp; Hypervisors</a></li>
             <li><a href="#vms">7. Virtual Machines &amp; Dev Environments</a></li>
             <li><a href="#syntax">8. Language Syntax Reference</a></li>
+            <li><a href="#esolangs">9. Esoteric Programming Languages</a></li>
         </ul>
+        </div>
     </details>
 </nav>
 
@@ -1447,14 +1452,134 @@
         </div>
     </section>
 
+<!-- ESOLANGS SECTION -->
+    <section id="esolangs">
+        <h2>9. Esoteric Programming Languages</h2>
+        <p>69 esoteric languages curated from the <a class="faq-btn" href="https://github.com/angrykoala/awesome-esolangs" target="_blank" rel="noopener">awesome-esolangs</a> list: minimalist, joke, 2D, and art-driven languages.</p>
+        <div class="table-wrapper">
+            <table class="compact">
+                <thead><tr><th>Language</th><th>Description</th><th>Hosted On</th><th>Project / Reference</th><th>Link</th></tr></thead>
+                <tbody>
+<tr><td><strong>&gt;&lt;&gt;</strong><br>(Esolang)</td><td>A stack-based 2d language with support for reflection.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>fish</code></td><td><a href="https://esolangs.org/wiki/fish" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>1+</strong><br>(Esolang)</td><td>A surprisingly user-friendly language with a highly-limited instruction set.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>1+</code></td><td><a href="https://esolangs.org/wiki/1%2B" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>78</strong><br>(Esolang)</td><td>A single-character command language focused around the numbers 7 and 8.</td><td><span class="badge">GitHub</span></td><td><code>oatmealine/78</code></td><td><a href="https://github.com/oatmealine/78" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>ajsone</strong><br>(Esolang)</td><td>Language defined completely in JSON.</td><td><span class="badge">Website</span></td><td><code>quaxio.com/ajsone</code></td><td><a href="https://www.quaxio.com/ajsone" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>AlmostBinary</strong><br>(Esolang)</td><td>Code in binary and run on any platform.</td><td><span class="badge">GitHub</span></td><td><code>wsdt/AlmostBinary</code></td><td><a href="https://github.com/wsdt/AlmostBinary" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>ArnoldC</strong><br>(Esolang)</td><td>Based on the best one-liners of Arnold Schwarzenegger.</td><td><span class="badge">Website</span></td><td><code>lhartikk.github.io/ArnoldC</code></td><td><a href="http://lhartikk.github.io/ArnoldC" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Befunge</strong><br>(Esolang)</td><td>Two-dimensional language.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Befunge</code></td><td><a href="https://esolangs.org/wiki/Befunge" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Benedictum</strong><br>(Esolang)</td><td>Latin-themed Brainfuck derivative where source code reads as prayer.</td><td><span class="badge">GitHub</span></td><td><code>Beneking102/benedictum</code></td><td><a href="https://github.com/Beneking102/benedictum" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Brackets</strong><br>(Esolang)</td><td>Language made of brackets, a lot of brackets.</td><td><span class="badge">GitHub</span></td><td><code>kvbc/brackets</code></td><td><a href="https://github.com/kvbc/brackets" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Brainfuck</strong><br>(Esolang)</td><td>Minimalist language using only 8 single-character commands.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Brainfuck</code></td><td><a href="https://esolangs.org/wiki/Brainfuck" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>C Flat</strong><br>(Esolang)</td><td>Musical language focused on sound rather than notation with creative freedom in mind.</td><td><span class="badge">GitHub</span></td><td><code>NicksterSand/Cflat</code></td><td><a href="https://github.com/NicksterSand/Cflat" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>CellTail</strong><br>(Esolang)</td><td>A 1d celular automata based language, supports a complex pattern matching syntax.</td><td><span class="badge">GitHub</span></td><td><code>mousetail/celltail</code></td><td><a href="https://github.com/mousetail/celltail" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Charcoal</strong><br>(Esolang)</td><td>Concise language for sketching ASCII art.</td><td><span class="badge">GitHub</span></td><td><code>somebody1234/Charcoal</code></td><td><a href="https://github.com/somebody1234/Charcoal" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Chef</strong><br>(Esolang)</td><td>Programs that look like cooking recipes.</td><td><span class="badge">Website</span></td><td><code>dangermouse.net/esoteric/chef.html</code></td><td><a href="http://www.dangermouse.net/esoteric/chef.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Chicken</strong><br>(Esolang)</td><td>Only 1 valid symbol: &#x27;chicken&#x27;.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Chicken</code></td><td><a href="https://esolangs.org/wiki/Chicken" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>ChuckScript</strong><br>(Esolang)</td><td>Unary-based language, where the code is a single number.</td><td><span class="badge">GitHub</span></td><td><code>angrykoala/chuckscript</code></td><td><a href="https://github.com/angrykoala/chuckscript" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>COW</strong><br>(Esolang)</td><td>Brainfuck variant using twelve variations of moos as instructions.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>COW</code></td><td><a href="https://esolangs.org/wiki/COW" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>DNA#</strong><br>(Esolang)</td><td>Language based on the structure of the DNA.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>DNA-Sharp</code></td><td><a href="https://esolangs.org/wiki/DNA-Sharp" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Dots</strong><br>(Esolang)</td><td>A turing-complete language using &quot;.&quot; symbol only.</td><td><span class="badge">GitHub</span></td><td><code>josconno/dots</code></td><td><a href="https://github.com/josconno/dots" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Electra</strong><br>(Esolang)</td><td>Code like an electrician.</td><td><span class="badge">GitHub</span></td><td><code>DolphyWind/Electra-Lang</code></td><td><a href="https://github.com/DolphyWind/Electra-Lang" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Emojicode</strong><br>(Esolang)</td><td>Full-blown programming language consisting of emojis.</td><td><span class="badge">Website</span></td><td><code>emojicode.org</code></td><td><a href="http://www.emojicode.org/" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Enterprise™</strong><br>(Esolang)</td><td>Non deterministic unnecessarily statically typed language.</td><td><span class="badge">GitHub</span></td><td><code>joaomilho/Enterprise</code></td><td><a href="https://github.com/joaomilho/Enterprise" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>False</strong><br>(Esolang)</td><td>Heavily obfuscated language with a minimal implementation.</td><td><span class="badge">Website</span></td><td><code>strlen.com/false-language</code></td><td><a href="http://strlen.com/false-language" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Fetlang</strong><br>(Esolang)</td><td>Designed such that source code looks like poorly written fetish erotica.</td><td><span class="badge">GitHub</span></td><td><code>Property404/fetlang</code></td><td><a href="https://github.com/Property404/fetlang" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>FlipJump</strong><br>(Esolang)</td><td>1 instruction: Flip a bit, then Jump. The simplest OISC.</td><td><span class="badge">GitHub</span></td><td><code>tomhea/flip-jump</code></td><td><a href="https://github.com/tomhea/flip-jump" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Folders</strong><br>(Esolang)</td><td>Code written with folders.</td><td><span class="badge">GitHub</span></td><td><code>rottytooth/Folders</code></td><td><a href="https://github.com/rottytooth/Folders" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>FreakC</strong><br>(Esolang)</td><td>Full-blown programming language with NSFW contents and memes.</td><td><span class="badge">GitHub</span></td><td><code>FreakC-Foundation/FreakC</code></td><td><a href="https://github.com/FreakC-Foundation/FreakC" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Fugue</strong><br>(Esolang)</td><td>Music as source code.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Fugue</code></td><td><a href="https://esolangs.org/wiki/Fugue" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Golfscript</strong><br>(Esolang)</td><td>Stack oriented, aimed at solving problems in as few keystrokes as possible.</td><td><span class="badge">Website</span></td><td><code>golfscript.com/golfscript</code></td><td><a href="http://www.golfscript.com/golfscript" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Haifu</strong><br>(Esolang)</td><td>Designed with the core values of Eastern philosophy in mind.</td><td><span class="badge">Website</span></td><td><code>dangermouse.net/esoteric/haifu.html</code></td><td><a href="http://www.dangermouse.net/esoteric/haifu.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>INTERCAL</strong><br>(Esolang)</td><td>Parody language intended to be completely different from other languages.</td><td><span class="badge">Website</span></td><td><code>catb.org/~esr/intercal</code></td><td><a href="http://www.catb.org/~esr/intercal" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Japt</strong><br>(Esolang)</td><td>Reduced JavaScript for golfing.</td><td><span class="badge">GitHub</span></td><td><code>ETHproductions/japt</code></td><td><a href="https://github.com/ETHproductions/japt" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Jelly</strong><br>(Esolang)</td><td>Golfing language based on J.</td><td><span class="badge">GitHub</span></td><td><code>DennisMitchell/jellylanguage</code></td><td><a href="https://github.com/DennisMitchell/jellylanguage" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>JellyScript</strong><br>(Esolang)</td><td>Brainfuck-based with delicious jelly.</td><td><span class="badge">GitHub</span></td><td><code>nguyenphuminh/Jellyscript</code></td><td><a href="https://github.com/nguyenphuminh/Jellyscript" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>JSFuck</strong><br>(Esolang)</td><td>Esoteric programming style based on the atomic parts of JavaScript.</td><td><span class="badge">GitHub</span></td><td><code>aemkei/jsfuck</code></td><td><a href="https://github.com/aemkei/jsfuck" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Lazy K</strong><br>(Esolang)</td><td>Minimal, turing-complete pure functional language without extra features.</td><td><span class="badge">Website</span></td><td><code>tromp.github.io/cl/lazy-k.html</code></td><td><a href="https://tromp.github.io/cl/lazy-k.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>legit</strong><br>(Esolang)</td><td>Programs defined entirely by the graph of the git repository instead of its contents.</td><td><span class="badge">Website</span></td><td><code>morr.cc/legit</code></td><td><a href="https://morr.cc/legit" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>LolCode</strong><br>(Esolang)</td><td>Language with keywords based on the lolcat meme expressions.</td><td><span class="badge">Website</span></td><td><code>lolcode.org</code></td><td><a href="http://lolcode.org/" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Malbolge</strong><br>(Esolang)</td><td>Named after the 8th level of hell, is designed to be as difficult as possible to program.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Malbolge</code></td><td><a href="https://esolangs.org/wiki/Malbolge" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Mindfck</strong><br>(Esolang)</td><td>High level language that transpiles to Brainfuck.</td><td><span class="badge">GitHub</span></td><td><code>angrykoala/mindfck</code></td><td><a href="https://github.com/angrykoala/mindfck" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Monicelli</strong><br>(Esolang)</td><td>Programming using Italian-like gibberish.</td><td><span class="badge">GitHub</span></td><td><code>esseks/monicelli</code></td><td><a href="https://github.com/esseks/monicelli" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Ni</strong><br>(Esolang)</td><td>Brainfuck-based with more helpful instructions.</td><td><span class="badge">GitHub</span></td><td><code>DeybisMelendez/ni</code></td><td><a href="https://github.com/DeybisMelendez/ni" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Omgrofl</strong><br>(Esolang)</td><td>Syntax resembling Internet slang.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Omgrofl</code></td><td><a href="https://esolangs.org/wiki/Omgrofl" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Ook!</strong><br>(Esolang)</td><td>Brainfuck-based language, where the commands are orangutan words.</td><td><span class="badge">Website</span></td><td><code>dangermouse.net/esoteric/ook.html</code></td><td><a href="http://www.dangermouse.net/esoteric/ook.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Orca</strong><br>(Esolang)</td><td>Livecoding environment to quickly create procedural audio sequencers.</td><td><span class="badge">Website</span></td><td><code>hundredrabbits.itch.io/orca</code></td><td><a href="https://hundredrabbits.itch.io/orca" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Piet</strong><br>(Esolang)</td><td>Language in which programs look like abstract paintings using colors as code. Named after Piet Mondrian.</td><td><span class="badge">Website</span></td><td><code>dangermouse.net/esoteric/piet.html</code></td><td><a href="http://www.dangermouse.net/esoteric/piet.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>RASEL</strong><br>(Esolang)</td><td>Fungeoid with no limits on program space, float precision, and with a bit of random access to stack.</td><td><span class="badge">GitHub</span></td><td><code>Nakilon/rasel</code></td><td><a href="https://github.com/Nakilon/rasel" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>reMorse</strong><br>(Esolang)</td><td>Morse-styled language.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>reMorse</code></td><td><a href="http://esolangs.org/wiki/reMorse" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Rockstar</strong><br>(Esolang)</td><td>Designed for creating computer programs that are also song lyrics.</td><td><span class="badge">GitHub</span></td><td><code>dylanbeattie/rockstar</code></td><td><a href="https://github.com/dylanbeattie/rockstar" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Shakespeare</strong><br>(Esolang)</td><td>Language where the code appear to be Shakespearean plays.</td><td><span class="badge">Website</span></td><td><code>shakespearelang.sourceforge.net</code></td><td><a href="http://shakespearelang.sourceforge.net/" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Schoenberg</strong><br>(Esolang)</td><td>The MIDI Esoteric Programming Language.</td><td><span class="badge">Website</span></td><td><code>tomeraberba.ch/schoenberg</code></td><td><a href="https://tomeraberba.ch/schoenberg" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Spooky</strong><br>(Esolang)</td><td>The scariest programming language 🎃 💀.</td><td><span class="badge">Website</span></td><td><code>spookylang.com</code></td><td><a href="https://spookylang.com/" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Suzy</strong><br>(Esolang)</td><td>3D language inspired in Befunge.</td><td><span class="badge">GitHub</span></td><td><code>gvx/suzy</code></td><td><a href="https://github.com/gvx/suzy" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Technologic</strong><br>(Esolang)</td><td>Language in which programs look like the lyrics to the Daft Punk song Technologic.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Technologic</code></td><td><a href="https://esolangs.org/wiki/Technologic" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Thue</strong><br>(Esolang)</td><td>Matrioshka language based on nondeterministic string rewriting of a semi-Thue grammar.</td><td><span class="badge">GitHub</span></td><td><code>jcolag/Thue</code></td><td><a href="https://github.com/jcolag/Thue" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Tru</strong><br>(Esolang)</td><td>A stack-based language with prefix-free brackets.</td><td><span class="badge">GitHub</span></td><td><code>sungwoncho/tru</code></td><td><a href="https://github.com/sungwoncho/tru" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Turtle</strong><br>(Esolang)</td><td>Uses long-term storage for memory use.</td><td><span class="badge">GitHub</span></td><td><code>TypeMonkey/Turtle</code></td><td><a href="https://github.com/TypeMonkey/Turtle" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Unary</strong><br>(Esolang)</td><td>Brainfuck-based language where all the commands are 0.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Unary</code></td><td><a href="https://esolangs.org/wiki/Unary" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Unary Except Every Zero Is Replaced with the Title of This Programming Language or, Alternately, Is Replaced with the Smallest Counter-Example to the Goldbach Conjecture. Compilers and Interpreters Only Have to Implement the Former Option</strong><br>(Esolang)</td><td>Derivative of Unary in which every zero is replaced with the title of the programming language being discussed.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Unary_Except_Every_Zero_Is_Replaced_with_the_Title_of_This_Programming_Language_or,_Alternately,_Is_Replaced_with_the_Smallest_Counter-Example_to_the_Goldbach_Conjecture._Compilers_and_Interpreters_Only_Have_to_Implement_the_Former_Option</code></td><td><a href="https://esolangs.org/wiki/Unary_Except_Every_Zero_Is_Replaced_with_the_Title_of_This_Programming_Language_or,_Alternately,_Is_Replaced_with_the_Smallest_Counter-Example_to_the_Goldbach_Conjecture._Compilers_and_Interpreters_Only_Have_to_Implement_the_Former_Option" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Unlambda</strong><br>(Esolang)</td><td>Obfuscated functional programming.</td><td><span class="badge">Website</span></td><td><code>madore.org/~david/programs/unlambda</code></td><td><a href="http://www.madore.org/~david/programs/unlambda" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Velato</strong><br>(Esolang)</td><td>Language that uses MIDI files as source, programs are defined by the pitch and order of notes.</td><td><span class="badge">Website</span></td><td><code>velato.net</code></td><td><a href="http://velato.net/" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Vigil</strong><br>(Esolang)</td><td>Only Vigil is truly vigilant about not allowing code that fails to pass programmatic specifications.</td><td><span class="badge">GitHub</span></td><td><code>munificent/vigil</code></td><td><a href="https://github.com/munificent/vigil" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Watson</strong><br>(Esolang)</td><td>Stack-based Turing-incomplete configuration files.</td><td><span class="badge">GitHub</span></td><td><code>genkami/watson</code></td><td><a href="https://github.com/genkami/watson" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>文言 (Wenyan)</strong><br>(Esolang)</td><td>Closely follows the grammar and tone of classical Chinese literature.</td><td><span class="badge">Website</span></td><td><code>wenyan-lang.lingdong.works</code></td><td><a href="http://wenyan-lang.lingdong.works/" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Whenever</strong><br>(Esolang)</td><td>Language that does things whenever it wants.</td><td><span class="badge">Website</span></td><td><code>dangermouse.net/esoteric/whenever.html</code></td><td><a href="http://www.dangermouse.net/esoteric/whenever.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Whitespace</strong><br>(Esolang)</td><td>Use only white-characters (space, tabs and newlines).</td><td><span class="badge">Website</span></td><td><code>web.archive.org/web/20150623025348/http://compsoc.dur.ac.uk/whitespace</code></td><td><a href="http://web.archive.org/web/20150623025348/http://compsoc.dur.ac.uk/whitespace" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>WordLang</strong><br>(Esolang)</td><td>A language based on meaning-like grammar that produces output.</td><td><span class="badge">GitHub</span></td><td><code>WilliamRagstad/WordLang</code></td><td><a href="https://github.com/WilliamRagstad/WordLang" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>Z</strong><br>(Esolang)</td><td>Use only the letter z.</td><td><span class="badge">Esolangs Wiki</span></td><td><code>Z</code></td><td><a href="https://esolangs.org/wiki/Z" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+<tr><td><strong>ZOMBIE</strong><br>(Esolang)</td><td>Inherently evil multithreaded language designed for Necromancers.</td><td><span class="badge">Website</span></td><td><code>dangermouse.net/esoteric/zombie.html</code></td><td><a href="https://www.dangermouse.net/esoteric/zombie.html" target="_blank" rel="noopener" class="link-btn">Open</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- /ESOLANGS SECTION -->
+
+
+    <footer class="site-footer" id="site-footer">
+        <div class="footer-links">
+            <button type="button" class="footer-link" data-dialog="about-dialog" data-testid="open-about">About</button>
+            <button type="button" class="footer-link" data-dialog="terms-dialog" data-testid="open-terms">Terms &amp; Conditions</button>
+            <a class="footer-link" href="mailto:zmillikin.work@gmail.com" data-testid="contact-link">zmillikin.work@gmail.com</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="copyright-year">2026</span> Zak Millikin &middot; <a href="mailto:zmillikin.work@gmail.com">zmillikin.work@gmail.com</a> &middot; Licensed under the GNU General Public License.</p>
+    </footer>
 </main>
 
-<dialog class="product-dialog" aria-labelledby="product-dialog-title">
+<dialog class="product-dialog" id="product-dialog" aria-labelledby="product-dialog-title">
     <div class="product-dialog-header">
         <h2 id="product-dialog-title"></h2>
         <button class="product-dialog-close" type="button" aria-label="Close details">&times;</button>
     </div>
     <dl class="product-dialog-content"></dl>
+</dialog>
+
+
+<dialog class="info-dialog" id="about-dialog" aria-labelledby="about-title">
+    <div class="product-dialog-header"><h2 id="about-title">About</h2><button class="product-dialog-close" type="button" data-close aria-label="Close about">&times;</button></div>
+    <div class="info-body">
+        <p>The Grand Developer &amp; Automation Matrix was created by <strong>Zak Millikin</strong> with <strong>Gemini Pro</strong> and <strong>Anti-Gravity</strong>.</p>
+        <h3>Tech stack</h3>
+        <ul class="stack-list">
+            <li><span class="stack-sym">&#127760;</span> HTML5 &mdash; semantic structure</li>
+            <li><span class="stack-sym">&#127912;</span> CSS3 &mdash; grid, custom properties, responsive layout</li>
+            <li><span class="stack-sym">&#9889;</span> Vanilla JavaScript &mdash; views, carousel, search</li>
+            <li><span class="stack-sym">&#128013;</span> Python &mdash; data scraping &amp; import scripts</li>
+            <li><span class="stack-sym">&#127917;</span> Playwright &mdash; keyword-driven UI tests</li>
+            <li><span class="stack-sym">&#10024;</span> Gemini Pro &amp; Anti-Gravity &mdash; AI pair programming</li>
+        </ul>
+    </div>
+</dialog>
+
+<dialog class="info-dialog" id="terms-dialog" aria-labelledby="terms-title">
+    <div class="product-dialog-header"><h2 id="terms-title">Terms &amp; Conditions</h2><button class="product-dialog-close" type="button" data-close aria-label="Close terms">&times;</button></div>
+    <div class="info-body">
+        <p>Copyright &copy; Zak Millikin &mdash; <a href="mailto:zmillikin.work@gmail.com">zmillikin.work@gmail.com</a></p>
+        <p>This program is free software: you can redistribute it and/or modify it under the terms of the <strong>GNU General Public License</strong> as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+        <p>This program is distributed in the hope that it will be useful, but <strong>WITHOUT ANY WARRANTY</strong>; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+        <p>The information presented is for reference only and may be out of date; verify details with official vendor documentation. Third-party names and trademarks belong to their respective owners. External links lead to sites outside this project's control.</p>
+        <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="https://www.gnu.org/licenses/" target="_blank" rel="noopener">gnu.org/licenses</a>.</p>
+    </div>
 </dialog>
 
 <script>
@@ -1485,7 +1610,7 @@
     function setSidebarCollapsed(collapsed) {
         document.body.classList.toggle("sidebar-collapsed", collapsed);
         sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
-        const label = collapsed ? "Expand menu" : "Collapse menu";
+        const label = collapsed ? "Expand" : "Collapse";
         sidebarToggle.setAttribute("aria-label", label);
         sidebarToggle.querySelector(".sidebar-toggle-label").textContent = label;
     }
@@ -1530,6 +1655,7 @@
     syncSectionNavigation();
     mobileLayout.addEventListener("change", syncSectionNavigation);
 </script>
+<script src="assets/devmatrix-ui.js"></script>
 
 </body>
 </html>

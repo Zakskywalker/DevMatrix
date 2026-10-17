@@ -1,0 +1,125 @@
+{
+  "suite": "Desktop",
+  "viewport": { "width": 1366, "height": 800 },
+  "scenarios": [
+    {
+      "name": "Sidebar labels and Table of Contents",
+      "steps": [
+        ["open"],
+        ["textExact", "sidebar-toggle", "Collapse"],
+        ["pageHasText", "Table of Contents"],
+        ["pageLacksText", "Ecosystem Index"],
+        ["textExact", "toc-data-header", "Data"],
+        ["click", "sidebar-toggle"],
+        ["textExact", "sidebar-toggle", "Expand"]
+      ]
+    },
+    {
+      "name": "Sections start collapsed and open from header",
+      "steps": [
+        ["open"],
+        ["sectionClosed", "automation"],
+        ["sectionClosed", "esolangs"],
+        ["click", "section-header-automation"],
+        ["sectionOpen", "automation"],
+        ["click", "section-header-automation"],
+        ["sectionClosed", "automation"]
+      ]
+    },
+    {
+      "name": "TOC link opens its section, including the new esolangs table",
+      "steps": [
+        ["open"],
+        ["clickRole", "link", "9. Esoteric Programming Languages"],
+        ["sectionOpen", "esolangs"],
+        ["countAtLeast", "section-esolangs", 1],
+        ["pageHasText", "Brainfuck"],
+        ["text", "count-esolangs", "entries"]
+      ]
+    },
+    {
+      "name": "Table / Display switch with carousel and dropdown",
+      "steps": [
+        ["open", "#esolangs"],
+        ["sectionOpen", "esolangs"],
+        ["click", "view-display-esolangs"],
+        ["visible", "display-esolangs-current"],
+        ["visible", "display-esolangs-select"],
+        ["countAtLeast", "display-esolangs-tile", 60],
+        ["text", "display-esolangs-current", "><>"],
+        ["click", "display-esolangs-next"],
+        ["text", "display-esolangs-current", "1+"],
+        ["select", "display-esolangs-select", "6"],
+        ["text", "display-esolangs-current", "Befunge"],
+        ["click", "view-table-esolangs"],
+        ["hidden", "display-esolangs-current"]
+      ]
+    },
+    {
+      "name": "Section search filters entries",
+      "steps": [
+        ["open", "#esolangs"],
+        ["fill", "search-esolangs", "brainfuck"],
+        ["text", "count-esolangs", "match"],
+        ["click", "view-display-esolangs"],
+        ["value", "display-esolangs-search", "brainfuck"],
+        ["fill", "search-esolangs", "zzzzqqq"],
+        ["text", "display-esolangs-current", "No matches"]
+      ]
+    },
+    {
+      "name": "TOC Data node lists entities with table / display jump",
+      "steps": [
+        ["open"],
+        ["click", "toc-expand-esolangs"],
+        ["countAtLeast", "toc-entity-esolangs", 60],
+        ["clickNth", "toc-entity-esolangs", 3],
+        ["sectionOpen", "esolangs"],
+        ["click", "toc-data-header"],
+        ["hidden", "toc-expand-esolangs"]
+      ]
+    },
+    {
+      "name": "Single view: section dropdown, carousel and TOC sync",
+      "steps": [
+        ["open"],
+        ["click", "mode-single"],
+        ["visible", "single-panel"],
+        ["visible", "single-current"],
+        ["select", "single-section-select", "esolangs"],
+        ["countAtLeast", "single-tile", 60],
+        ["click", "single-next"],
+        ["clickRole", "link", "1. Automation & AI Agents"],
+        ["value", "single-section-select", "automation"],
+        ["click", "mode-multi"],
+        ["hidden", "single-panel"]
+      ]
+    },
+    {
+      "name": "Global search shows result cards that navigate to the page",
+      "steps": [
+        ["open"],
+        ["fill", "global-search", "playwright"],
+        ["visible", "global-results"],
+        ["countAtLeast", "result-card", 1],
+        ["click", "result-card"],
+        ["hidden", "global-results"],
+        ["sectionOpen", "automation"]
+      ]
+    },
+    {
+      "name": "Footer: copyright, about and terms",
+      "steps": [
+        ["open"],
+        ["pageHasText", "zmillikin.work@gmail.com"],
+        ["click", "open-about"],
+        ["dialogOpen", "about-dialog"],
+        ["pageHasText", "Zak Millikin with Gemini Pro and Anti-Gravity"],
+        ["clickRole", "button", "Close about"],
+        ["click", "open-terms"],
+        ["dialogOpen", "terms-dialog"],
+        ["pageHasText", "GNU General Public License"]
+      ]
+    }
+  ]
+}
