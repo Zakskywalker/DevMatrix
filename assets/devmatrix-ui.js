@@ -61,8 +61,10 @@
 
         model.entities = rows.map((row, i) => {
             const trigger = $('.product-detail-trigger', row);
-            const name = norm(trigger ? trigger.textContent : row.cells[0].textContent);
-            const sub = norm(row.cells[0].textContent.replace(name, ''));
+            const firstCell = row.cells[0].cloneNode(true);
+            $$('.skull-key', firstCell).forEach(s => s.remove());
+            const name = norm(trigger ? trigger.textContent : firstCell.textContent);
+            const sub = norm(firstCell.textContent.replace(name, ''));
             const pop = $('.pop', row);
             const note = $('.pop-note', row);
             const e = {

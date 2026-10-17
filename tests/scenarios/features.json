@@ -1,0 +1,86 @@
+{
+  "suite": "Automation map, reverse engineering and analytics",
+  "viewport": { "width": 1366, "height": 800 },
+  "scenarios": [
+    {
+      "name": "Controls expose automation ids (area_type_name)",
+      "steps": [
+        ["open"],
+        ["attr", "sidebar-toggle", "data-automation-id", "toc_button_collapse"],
+        ["attr", "global-search", "data-automation-id", "global_search_search-all-data"],
+        ["attrCss", "[data-testid='open-about']", "data-automation-id", "footer_button_about"]
+      ]
+    },
+    {
+      "name": "About skull key opens the searchable automation map",
+      "steps": [
+        ["open"],
+        ["click", "open-about"],
+        ["clickCss", "#about-dialog .skull-key"],
+        ["dialogOpen", "automation-map-dialog"],
+        ["countCssAtLeast", "[data-testid='map-rows'] tr", 100],
+        ["fill", "map-search", "toc_button_collapse"],
+        ["text", "map-count", "of"],
+        ["countCssAtLeast", "[data-testid='map-rows'] tr", 1]
+      ]
+    },
+    {
+      "name": "Ghidra skull key opens the same map",
+      "steps": [
+        ["open", "#reverse"],
+        ["sectionOpen", "reverse"],
+        ["clickCss", "#reverse tr:has(.skull-key) .skull-key"],
+        ["dialogOpen", "automation-map-dialog"],
+        ["fill", "map-search", "ghidra"],
+        ["countCssAtLeast", "[data-testid='map-rows'] tr", 1]
+      ]
+    },
+    {
+      "name": "Reverse engineering sections and separated AI block",
+      "steps": [
+        ["open", "#reverse"],
+        ["sectionOpen", "reverse"],
+        ["pageHasText", "SoftICE"],
+        ["pageHasText", "Ghidra"],
+        ["clickRole", "link", "11. AI-Assisted Reverse Engineering"],
+        ["sectionOpen", "reverse-ai"],
+        ["pageHasText", "GhidraMCP"],
+        ["countCssAtLeast", "section.ai-section", 1]
+      ]
+    },
+    {
+      "name": "Cookie banner: accept enables the interaction log",
+      "steps": [
+        ["openFresh"],
+        ["visible", "cookie-banner"],
+        ["click", "cookie-accept"],
+        ["hidden", "cookie-banner"],
+        ["click", "mode-single"],
+        ["click", "open-privacy"],
+        ["dialogOpen", "privacy-dialog"],
+        ["text", "consent-status", "Accepted"],
+        ["countCssAtLeast", "[data-testid='log-rows'] tr", 2]
+      ]
+    },
+    {
+      "name": "Cookie banner: decline records nothing",
+      "steps": [
+        ["openFresh"],
+        ["click", "cookie-decline"],
+        ["hidden", "cookie-banner"],
+        ["click", "mode-single"],
+        ["click", "open-privacy"],
+        ["text", "consent-status", "Declined"],
+        ["count", "log-rows", 1]
+      ]
+    },
+    {
+      "name": "Visit counter sits in the header",
+      "steps": [
+        ["open"],
+        ["visible", "site-counter"],
+        ["text", "site-counter", "42"]
+      ]
+    }
+  ]
+}

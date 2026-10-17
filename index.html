@@ -483,6 +483,7 @@
     <div class="hero-copy">
         <p class="hero-kicker">Tools · Languages · Automation</p>
         <h1>The Grand Developer Matrix</h1>
+        <p class="site-counter" data-testid="site-counter" title="Total visits (counted once per session with consent)">&#128065; Visits <strong id="site-counter-value">&hellip;</strong></p>
     </div>
 </header>
 
@@ -506,6 +507,8 @@
             <li><a href="#vms">7. Virtual Machines &amp; Dev Environments</a></li>
             <li><a href="#syntax">8. Language Syntax Reference</a></li>
             <li><a href="#esolangs">9. Esoteric Programming Languages</a></li>
+            <li><a href="#reverse">10. Reverse Engineering Tools</a></li>
+            <li><a href="#reverse-ai">11. AI-Assisted Reverse Engineering</a></li>
         </ul>
         </div>
     </details>
@@ -1535,11 +1538,57 @@
     </section>
     <!-- /ESOLANGS SECTION -->
 
+    <!-- REVERSE ENGINEERING SECTIONS -->
+    <section id="reverse">
+        <h2>10. Reverse Engineering Tools Through Time</h2>
+        <p>Disassemblers, debuggers and decompilers from the DOS-era kernel debuggers to today's open-source suites, in the order they appeared.</p>
+        <div class="table-wrapper">
+            <table class="compact">
+                <thead><tr><th>Tool &amp; Era</th><th>Platform</th><th>License / Cost</th><th>Primary Use</th><th>Notable Features</th><th>Status</th><th>Docs / KB</th><th>Download</th><th>Popularity</th></tr></thead>
+                <tbody>
+<tr><td><strong>SoftICE</strong><br>(1987 - 2006)</td><td><span class="badge">Windows (DOS, 9x, NT)</span></td><td>Commercial (NuMega / Compuware, discontinued)</td><td>Kernel-mode debugging</td><td>Ring-0 debugger that froze the whole OS; the staple of driver developers and crackers of its day.</td><td>Discontinued in 2006</td><td><a href="https://en.wikipedia.org/wiki/SoftICE" target="_blank" rel="noopener" class="faq-btn">History</a></td><td>&mdash;</td><td><span class="pop pop-legacy">Legacy</span><br><span class="pop-note">Historic; replaced by WinDbg and x64dbg</span></td></tr>
+<tr><td><strong>IDA Pro</strong><br>(1991)</td><td><span class="badge">Windows, macOS, Linux</span></td><td>Commercial (Hex-Rays; limited free edition)</td><td>Disassembly and decompilation</td><td>Interactive disassembler, Hex-Rays decompiler, FLIRT signatures, very wide CPU support, IDAPython plugins.</td><td>Active</td><td><a href="https://docs.hex-rays.com/" target="_blank" rel="noopener" class="faq-btn">Docs</a></td><td><a href="https://hex-rays.com/ida-pro/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-dominant">Dominant</span><br><span class="pop-note">Long-time industry standard</span></td></tr>
+<tr><td><strong>OllyDbg</strong><br>(2000)</td><td><span class="badge">Windows (32-bit)</span></td><td>Freeware</td><td>User-mode debugging</td><td>Friendly assembler-level debugger with a large plugin scene. Last release 2.01 (2013); no 64-bit support.</td><td>Unmaintained</td><td><a href="https://www.ollydbg.de/" target="_blank" rel="noopener" class="faq-btn">Homepage</a></td><td><a href="https://www.ollydbg.de/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-legacy">Legacy</span><br><span class="pop-note">Beloved classic, superseded by x64dbg</span></td></tr>
+<tr><td><strong>Radare2</strong><br>(2006)</td><td><span class="badge">Cross-platform</span></td><td>LGPL (open source)</td><td>CLI reverse-engineering framework</td><td>Scriptable disassembler, debugger and hex editor with r2pipe bindings for many languages.</td><td>Active</td><td><a href="https://book.rada.re/" target="_blank" rel="noopener" class="faq-btn">Book</a></td><td><a href="https://github.com/radareorg/radare2" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-medium">Medium</span><br><span class="pop-note">Power-user favourite</span></td></tr>
+<tr><td><strong>Immunity Debugger</strong><br>(2007)</td><td><span class="badge">Windows</span></td><td>Free (Immunity Inc.)</td><td>Exploit development debugging</td><td>OllyDbg-based debugger with a Python API (PyCommands) and the mona.py exploit helper.</td><td>Rarely updated</td><td><a href="https://www.immunityinc.com/products/debugger/" target="_blank" rel="noopener" class="faq-btn">Product page</a></td><td><a href="https://www.immunityinc.com/products/debugger/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-niche">Niche</span><br><span class="pop-note">Exploit-dev niche</span></td></tr>
+<tr><td><strong>Hopper</strong><br>(2010)</td><td><span class="badge">macOS, Linux</span></td><td>Commercial (trial available)</td><td>Disassembly and decompilation</td><td>Native macOS interface with strong Objective-C support and a pseudo-code view.</td><td>Active</td><td><a href="https://www.hopperapp.com/" target="_blank" rel="noopener" class="faq-btn">Docs</a></td><td><a href="https://www.hopperapp.com/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-medium">Medium</span><br><span class="pop-note">Popular on Apple platforms</span></td></tr>
+<tr><td><strong>Frida</strong><br>(2010)</td><td><span class="badge">Windows, macOS, Linux, iOS, Android</span></td><td>wxWindows Library Licence (open source)</td><td>Dynamic instrumentation</td><td>Inject JavaScript into running processes to hook functions, trace calls and patch behaviour live.</td><td>Active</td><td><a href="https://frida.re/docs/home/" target="_blank" rel="noopener" class="faq-btn">Docs</a></td><td><a href="https://github.com/frida/frida" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-high">High</span><br><span class="pop-note">Standard for mobile and runtime RE</span></td></tr>
+<tr><td><strong>ILSpy</strong><br>(2011)</td><td><span class="badge">Windows, Linux, macOS</span></td><td>MIT (open source)</td><td>.NET decompilation</td><td>Decompiles .NET assemblies back to C#; built by the ICSharpCode (SharpDevelop) team.</td><td>Active</td><td><a href="https://github.com/icsharpcode/ILSpy" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/icsharpcode/ILSpy" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-high">High</span><br><span class="pop-note">Default .NET decompiler</span></td></tr>
+<tr><td><strong>x64dbg</strong><br>(2013)</td><td><span class="badge">Windows (32 / 64-bit)</span></td><td>GPL v3 (open source)</td><td>User-mode debugging</td><td>Open-source debugger with plugins and scripting; the modern spiritual successor to OllyDbg.</td><td>Active</td><td><a href="https://help.x64dbg.com/" target="_blank" rel="noopener" class="faq-btn">Docs</a></td><td><a href="https://x64dbg.com/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-veryhigh">Very High</span><br><span class="pop-note">Go-to free Windows debugger</span></td></tr>
+<tr><td><strong>JADX</strong><br>(2013)</td><td><span class="badge">Cross-platform</span></td><td>Apache 2.0 (open source)</td><td>Android decompilation</td><td>Turns Dalvik bytecode and APKs into readable Java; GUI and CLI.</td><td>Active</td><td><a href="https://github.com/skylot/jadx" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/skylot/jadx" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-high">High</span><br><span class="pop-note">Top APK decompiler</span></td></tr>
+<tr><td><strong>dnSpy</strong><br>(2014)</td><td><span class="badge">Windows</span></td><td>GPL v3 (open source)</td><td>.NET debugging and editing</td><td>Decompile, edit and debug .NET assemblies without source.</td><td>Archived (2020)</td><td><a href="https://github.com/dnSpy/dnSpy" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/dnSpy/dnSpy" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-low">Low</span><br><span class="pop-note">Archived; forks continue</span></td></tr>
+<tr><td><strong>Binary Ninja</strong><br>(2016)</td><td><span class="badge">Windows, macOS, Linux</span></td><td>Commercial (free tiers available)</td><td>IL-based binary analysis</td><td>Multi-level intermediate languages (LLIL / MLIL / HLIL), Python API and a modern UI.</td><td>Active</td><td><a href="https://docs.binary.ninja/" target="_blank" rel="noopener" class="faq-btn">Docs</a></td><td><a href="https://binary.ninja/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-high">High</span><br><span class="pop-note">Rising commercial challenger</span></td></tr>
+<tr><td><strong>Cutter</strong><br>(2017)</td><td><span class="badge">Windows, macOS, Linux</span></td><td>GPL (open source)</td><td>GUI for Rizin</td><td>Qt-based GUI (originally Iaito) built on Rizin with an integrated Ghidra decompiler.</td><td>Active</td><td><a href="https://cutter.re/docs/" target="_blank" rel="noopener" class="faq-btn">Docs</a></td><td><a href="https://cutter.re/" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-medium">Medium</span><br><span class="pop-note">Friendly open-source GUI</span></td></tr>
+<tr><td><strong>Ghidra</strong> <button type="button" class="skull-key" aria-label="Automation map">&#9760;</button><br>(2019)</td><td><span class="badge">Windows, macOS, Linux (Java)</span></td><td>Apache 2.0 (open source)</td><td>Disassembly, decompilation, collaboration</td><td>NSA software-reverse-engineering suite open-sourced in 2019: decompiler, SLEIGH processor specs, scripting and a shared server.</td><td>Active</td><td><a href="https://ghidra-sre.org/" target="_blank" rel="noopener" class="faq-btn">Docs</a> <a href="https://github.com/NationalSecurityAgency/ghidra" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/NationalSecurityAgency/ghidra/releases" target="_blank" rel="noopener" class="link-btn">Download</a></td><td><span class="pop pop-veryhigh">Very High</span><br><span class="pop-note">Top free RE suite</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="reverse-ai" class="ai-section">
+        <h2>11. AI-Assisted Reverse Engineering (Current)</h2>
+        <p>Plugins and bridges that connect language models to the tools above. These projects move quickly, so each row links to its releases page for the current version.</p>
+        <div class="table-wrapper">
+            <table class="compact">
+                <thead><tr><th>Tool &amp; Era</th><th>Works With</th><th>License / Cost</th><th>What It Does</th><th>Typical Workflow</th><th>Current Version</th><th>Docs / KB</th><th>Source</th><th>Popularity</th></tr></thead>
+                <tbody>
+<tr><td><strong>GhidraMCP</strong><br>(2025)</td><td><span class="badge">Ghidra + any MCP client</span></td><td>Open source (see repo)</td><td>Exposes Ghidra to LLM clients through the Model Context Protocol.</td><td>Ask the model to list functions, read decompiled code, rename symbols and add comments.</td><td><a href="https://github.com/LaurieWired/GhidraMCP/releases" target="_blank" rel="noopener" class="faq-btn">Latest release</a></td><td><a href="https://github.com/LaurieWired/GhidraMCP" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/LaurieWired/GhidraMCP" target="_blank" rel="noopener" class="link-btn">Source</a></td><td><span class="pop pop-medium">Medium</span><br><span class="pop-note">Popular way to drive Ghidra with AI</span></td></tr>
+<tr><td><strong>GhidrAssist</strong><br>(2024)</td><td><span class="badge">Ghidra plugin</span></td><td>Open source (see repo)</td><td>LLM assistant panel inside Ghidra for explaining and renaming code.</td><td>Select a function, request an explanation, accept suggested names and types.</td><td><a href="https://github.com/jtang613/GhidrAssist/releases" target="_blank" rel="noopener" class="faq-btn">Latest release</a></td><td><a href="https://github.com/jtang613/GhidrAssist" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/jtang613/GhidrAssist" target="_blank" rel="noopener" class="link-btn">Source</a></td><td><span class="pop pop-niche">Niche</span><br><span class="pop-note">Community plugin</span></td></tr>
+<tr><td><strong>ReVA</strong><br>(2024)</td><td><span class="badge">Ghidra plugin + chat client</span></td><td>Open source (see repo)</td><td>Reverse Engineering Assistant giving a model tool access to a Ghidra project.</td><td>Chat with the binary; the agent calls Ghidra tools to answer.</td><td><a href="https://github.com/cyberkaida/reverse-engineering-assistant/releases" target="_blank" rel="noopener" class="faq-btn">Latest release</a></td><td><a href="https://github.com/cyberkaida/reverse-engineering-assistant" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/cyberkaida/reverse-engineering-assistant" target="_blank" rel="noopener" class="link-btn">Source</a></td><td><span class="pop pop-niche">Niche</span><br><span class="pop-note">Agent-style Ghidra helper</span></td></tr>
+<tr><td><strong>Gepetto</strong><br>(2023)</td><td><span class="badge">IDA Pro plugin</span></td><td>GPL v3 (open source)</td><td>Uses LLMs to explain functions and suggest variable names in IDA.</td><td>Right-click a function in the disassembly or pseudocode view and ask for an explanation.</td><td><a href="https://github.com/JusticeRage/Gepetto/releases" target="_blank" rel="noopener" class="faq-btn">Latest release</a></td><td><a href="https://github.com/JusticeRage/Gepetto" target="_blank" rel="noopener" class="faq-btn">Repo</a></td><td><a href="https://github.com/JusticeRage/Gepetto" target="_blank" rel="noopener" class="link-btn">Source</a></td><td><span class="pop pop-medium">Medium</span><br><span class="pop-note">Early LLM plugin for IDA</span></td></tr>
+<tr><td><strong>Binary Ninja Sidekick</strong><br>(2023)</td><td><span class="badge">Binary Ninja</span></td><td>Commercial add-on</td><td>AI assistant integrated into Binary Ninja from Vector 35.</td><td>Summarise functions, recover names and ask questions in context.</td><td><a href="https://binary.ninja/" target="_blank" rel="noopener" class="faq-btn">Latest release</a></td><td><a href="https://binary.ninja/" target="_blank" rel="noopener" class="faq-btn">Vendor site</a></td><td><a href="https://binary.ninja/" target="_blank" rel="noopener" class="link-btn">Source</a></td><td><span class="pop pop-niche">Niche</span><br><span class="pop-note">Vendor-backed assistant</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- /REVERSE ENGINEERING SECTIONS -->
+
 
     <footer class="site-footer" id="site-footer">
         <div class="footer-links">
             <button type="button" class="footer-link" data-dialog="about-dialog" data-testid="open-about">About</button>
             <button type="button" class="footer-link" data-dialog="terms-dialog" data-testid="open-terms">Terms &amp; Conditions</button>
+            <button type="button" class="footer-link" data-dialog="privacy-dialog" data-testid="open-privacy">Privacy &amp; Log</button>
             <a class="footer-link" href="mailto:zmillikin.work@gmail.com" data-testid="contact-link">zmillikin.work@gmail.com</a>
         </div>
         <p class="footer-copy">&copy; <span id="copyright-year">2026</span> Zak Millikin &middot; <a href="mailto:zmillikin.work@gmail.com">zmillikin.work@gmail.com</a> &middot; Licensed under the GNU General Public License.</p>
@@ -1568,6 +1617,7 @@
             <li><span class="stack-sym">&#127917;</span> Playwright &mdash; keyword-driven UI tests</li>
             <li><span class="stack-sym">&#10024;</span> Gemini Pro &amp; Anti-Gravity &mdash; AI pair programming</li>
         </ul>
+        <p class="about-foot">Made with curiosity. <button type="button" class="skull-key" aria-label="Automation map">&#9760;</button></p>
     </div>
 </dialog>
 
@@ -1578,6 +1628,7 @@
         <p>This program is free software: you can redistribute it and/or modify it under the terms of the <strong>GNU General Public License</strong> as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
         <p>This program is distributed in the hope that it will be useful, but <strong>WITHOUT ANY WARRANTY</strong>; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
         <p>The information presented is for reference only and may be out of date; verify details with official vendor documentation. Third-party names and trademarks belong to their respective owners. External links lead to sites outside this project's control.</p>
+        <p><strong>Analytics:</strong> with your consent this site stores a first-party cookie and a local interaction log (clicks, searches, layout changes) and uses a third-party visit counter. Decline from the banner or the Privacy &amp; Log dialog at any time.</p>
         <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="https://www.gnu.org/licenses/" target="_blank" rel="noopener">gnu.org/licenses</a>.</p>
     </div>
 </dialog>
@@ -1656,6 +1707,9 @@
     mobileLayout.addEventListener("change", syncSectionNavigation);
 </script>
 <script src="assets/devmatrix-ui.js"></script>
+<script>window.DEVMATRIX_ANALYTICS = { endpoint: null, counter: { base: "https://abacus.jasoncameron.dev", namespace: "devmatrix-zmillikin", key: "site-visits" } };</script>
+<script src="assets/devmatrix-automation.js"></script>
+<script src="assets/devmatrix-analytics.js"></script>
 
 </body>
 </html>

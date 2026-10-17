@@ -7,15 +7,29 @@ const { pathToFileURL } = require('url');
 
 const T = (page, id) => page.getByTestId(id);
 
+// consent: 'denied' (default, hides the cookie banner), 'granted', or null (fresh visitor).
+// The visit-counter service is stubbed so tests are deterministic and offline.
+async function load(page, hash, consent) {
+    await page.route('**/abacus.jasoncameron.dev/**', r => r.fulfill({ json: { value: 42 } }));
+    if (consent) await page.addInitScript(v => localStorage.setItem('dm_consent', v), consent);
+    await page.goto(pathToFileURL(path.join(__dirname, '..', 'index.html')).href + hash);
+}
+
 const keywords = {
     // ---- navigation / environment ----
-    open: async (page, hash = '') =>
-        page.goto(pathToFileURL(path.join(__dirname, '..', 'index.html')).href + hash),
+    open: async (page, hash = '') => load(page, hash, 'denied'),
+    openFresh: async (page, hash = '') => load(page, hash, null),
+    openConsented: async (page, hash = '') => load(page, hash, 'granted'),
     viewport: async (page, w, h) => page.setViewportSize({ width: w, height: h }),
 
     // ---- actions ----
     click: async (page, id) => T(page, id).first().click(),
     clickNth: async (page, id, n) => T(page, id).nth(n).click(),
+    clickCss: async (page, css) => page.locator(css).first().click(),
+    countCssAtLeast: async (page, css, n) =>
+        expect.poll(() => page.locator(css).count()).toBeGreaterThanOrEqual(n),
+    visibleCss: async (page, css) => expect(page.locator(css).first()).toBeVisible(),
+    attrCss: async (page, css, name, value) => expect(page.locator(css).first()).toHaveAttribute(name, value),
     clickText: async (page, text) => page.getByText(text, { exact: true }).first().click(),
     clickRole: async (page, role, name) => page.getByRole(role, { name }).first().click(),
     fill: async (page, id, value) => T(page, id).first().fill(value),
