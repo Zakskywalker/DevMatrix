@@ -81,6 +81,26 @@
         ["visible", "site-counter"],
         ["text", "site-counter", "42"]
       ]
+    },
+    {
+      "name": "Global search finds Automation Map with skull icon and opens it",
+      "steps": [
+        ["open"],
+        ["fill", "global-search", "automation map"],
+        ["visible", "result-card-map"],
+        ["click", "result-card-map"],
+        ["dialogOpen", "automation-map-dialog"],
+        ["countCssAtLeast", "[data-testid='map-rows'] tr", 100]
+      ]
+    },
+    {
+      "name": "Global bar skull button opens Automation Map",
+      "steps": [
+        ["open"],
+        ["visible", "skull-map-btn"],
+        ["click", "skull-map-btn"],
+        ["dialogOpen", "automation-map-dialog"]
+      ]
     }
   ]
 }

@@ -62,13 +62,14 @@
         model.entities = rows.map((row, i) => {
             const trigger = $('.product-detail-trigger', row);
             const firstCell = row.cells[0].cloneNode(true);
+            const hasSkull = Boolean($('.skull-key', row.cells[0]));
             $$('.skull-key', firstCell).forEach(s => s.remove());
             const name = norm(trigger ? trigger.textContent : firstCell.textContent);
             const sub = norm(firstCell.textContent.replace(name, ''));
             const pop = $('.pop', row);
             const note = $('.pop-note', row);
             const e = {
-                i, row, trigger, name, sub, model,
+                i, row, trigger, name, sub, model, hasSkull,
                 popLabel: pop ? norm(pop.textContent) : '',
                 popClass: pop ? pop.className : '',
                 fields: Array.from(row.cells).map((cell, c) => ({ label: heads[c] || '', cell, text: norm(cell.textContent) })),
@@ -109,7 +110,7 @@
         model.entities.forEach(e => {
             e.cell = el('button', { type: 'button', class: 'cell-tile', 'data-testid': `cell-${id}`, 'aria-label': `Show details for ${e.name}` },
                 el('span', { class: 'glyph', style: `--h:${hue(e.name)}`, 'aria-hidden': 'true', text: initials(e.name) }),
-                el('span', { class: 'tile-name', text: e.name }),
+                el('span', { class: 'tile-name' }, e.name, e.hasSkull ? el('button', { type: 'button', class: 'skull-key', 'aria-label': 'Automation map', title: 'Automation Map', text: '☠', onclick: (ev) => { ev.stopPropagation(); if (window.DevMatrixAutomation) window.DevMatrixAutomation.open(); } }) : null),
                 e.popLabel ? el('span', { class: e.popClass, text: e.popLabel }) : el('span', { class: 'tile-sub', text: e.sub }));
             e.cell.addEventListener('click', () => e.trigger && e.trigger.click());
             cellGrid.append(e.cell);
@@ -233,7 +234,10 @@
             });
             featured.replaceChildren(
                 el('div', { class: 'featured-head' }, glyph(cur.name, true),
-                    el('div', {}, el('h3', { text: cur.name }), el('span', { class: 'featured-sub', text: cur.sub })),
+                    el('div', {},
+                        el('h3', {}, cur.name, cur.hasSkull ? el('button', { type: 'button', class: 'skull-key', 'aria-label': 'Automation map', title: 'Automation Map', text: '☠', onclick: (ev) => { ev.stopPropagation(); if (window.DevMatrixAutomation) window.DevMatrixAutomation.open(); } }) : null),
+                        el('span', { class: 'featured-sub', text: cur.sub })
+                    ),
                     cur.popLabel ? el('span', { class: cur.popClass, text: cur.popLabel }) : null),
                 dl,
                 el('div', { class: 'featured-actions' },
@@ -275,7 +279,26 @@
     const gSearch = el('input', { type: 'search', class: 'search-input', placeholder: 'Search every table…', 'aria-label': 'Search all data', 'data-testid': 'global-search' });
     const expandAll = el('button', { type: 'button', class: 'chip-btn multi-only', 'data-testid': 'expand-all', text: 'Expand all' });
     const collapseAll = el('button', { type: 'button', class: 'chip-btn multi-only', 'data-testid': 'collapse-all', text: 'Collapse all' });
-    const bar = el('div', { class: 'global-bar', id: 'data' }, el('span', { class: 'bar-title', text: 'Data' }), modeSeg, el('div', { class: 'global-search' }, gSearch), expandAll, collapseAll);
+    const skullMapBtn = el('button', {
+        type: 'button',
+        class: 'chip-btn skull-map-btn',
+        'data-testid': 'skull-map-btn',
+        'aria-label': 'Search Automation Map',
+        title: 'Open Automation Map'
+    }, el('span', { 'aria-hidden': 'true' }, '☠'), ' Automation Map');
+    skullMapBtn.addEventListener('click', () => {
+        if (window.DevMatrixAutomation && window.DevMatrixAutomation.open) {
+            window.DevMatrixAutomation.open();
+        }
+    });
+    const bar = el('div', { class: 'global-bar', id: 'data' },
+        el('span', { class: 'bar-title', text: 'Data' }),
+        modeSeg,
+        el('div', { class: 'global-search' }, gSearch),
+        skullMapBtn,
+        expandAll,
+        collapseAll
+    );
     const results = el('div', { class: 'global-results', hidden: true, 'data-testid': 'global-results', 'aria-live': 'polite' });
 
     const sectionSelect = el('select', { class: 'fancy-select', id: 'single-section-select', 'data-testid': 'single-section-select', 'aria-label': 'Choose table' },
@@ -322,7 +345,35 @@
         const hits = [];
         models.forEach(m => m.entities.forEach(e => { if (e.text.includes(q)) hits.push(e); }));
         results.hidden = false;
-        results.append(el('p', { class: 'results-summary', text: hits.length ? `${hits.length} result${hits.length === 1 ? '' : 's'} across ${new Set(hits.map(h => h.model.id)).size} table(s) — click one to open it.` : 'No results.' }));
+
+        const matchesMap = "automation map".includes(q) || "map".includes(q) || "skull".includes(q) || "automation".includes(q) || "spec".includes(q) || "control".includes(q) || "id".includes(q) || "auto".includes(q);
+        const totalCount = hits.length + (matchesMap ? 1 : 0);
+        results.append(el('p', { class: 'results-summary', text: totalCount ? `${totalCount} result${totalCount === 1 ? '' : 's'} across ${new Set(hits.map(h => h.model.id)).size + (matchesMap ? 1 : 0)} source(s) — click one to open it.` : 'No results.' }));
+
+        if (matchesMap) {
+            const mapCard = el('button', {
+                type: 'button',
+                class: 'result-card result-card-map',
+                'data-testid': 'result-card-map',
+                'aria-label': 'Open Automation Map'
+            },
+                el('span', { class: 'result-section', text: 'System Utility' }),
+                el('span', { class: 'result-head' },
+                    el('span', { class: 'glyph map-glyph', text: '☠', 'aria-hidden': 'true' }),
+                    el('span', { class: 'result-name', text: 'Automation Map (data-automation-id)' })
+                ),
+                el('div', { class: 'result-fields' }, 'Interactive directory and search of all automation IDs, types, areas, and selectors across DevMatrix.'),
+                el('span', { class: 'result-go', text: 'Open Automation Map ☠ →' })
+            );
+            mapCard.addEventListener('click', () => {
+                gSearch.value = '';
+                renderResults();
+                if (window.DevMatrixAutomation && window.DevMatrixAutomation.open) {
+                    window.DevMatrixAutomation.open();
+                }
+            });
+            results.append(mapCard);
+        }
         hits.slice(0, 60).forEach(e => {
             const mini = el('dl', { class: 'result-fields' });
             e.fields.slice(1).filter(f => f.label && f.text && f.label !== 'Download Link' && f.label !== 'FAQ / KB').slice(0, 3)
