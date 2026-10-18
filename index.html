@@ -580,8 +580,134 @@
                 padding: 0 16px 18px;
             }
         }
+
+        /* ---------- Donate Section & Crypto Buttons ---------- */
+        .donate-section {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        .donate-section h3 {
+            margin: 0 0 10px;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .donate-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btc-container,
+        .eth-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .btc-donate-btn,
+        .eth-donate-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #FFFFFF;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btc-donate-btn {
+            background-color: #F7931A;
+            box-shadow: 0 4px 12px rgba(247, 147, 26, 0.3);
+        }
+
+        .btc-donate-btn:hover {
+            background-color: #e07f0f;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(247, 147, 26, 0.45);
+        }
+
+        .eth-donate-btn {
+            background-color: #627EEA;
+            box-shadow: 0 4px 12px rgba(98, 126, 234, 0.3);
+        }
+
+        .eth-donate-btn:hover {
+            background-color: #4f6bd6;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(98, 126, 234, 0.45);
+        }
+
+        .btc-donate-btn.copied,
+        .eth-donate-btn.copied {
+            background-color: #2ea043;
+            box-shadow: 0 4px 12px rgba(46, 160, 67, 0.35);
+        }
+
+        .btc-donate-btn:active,
+        .eth-donate-btn:active {
+            transform: translateY(0);
+        }
+
+        .btc-donate-btn:focus-visible,
+        .eth-donate-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .btc-icon,
+        .eth-icon {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .btc-fallback,
+        .eth-fallback {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .btc-fallback span,
+        .eth-fallback span {
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+            font-weight: 600;
+            font-size: 0.78rem;
+            background: rgba(13, 17, 23, 0.8);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 4px 8px;
+            border-radius: 6px;
+            word-break: break-all;
+            user-select: all;
+        }
     </style>
-    <link rel="stylesheet" href="assets/devmatrix-ui.css">
+    <link rel="stylesheet" href="assets/devmatrix-ui.css?v=2">
 </head>
 
 <body>
@@ -6946,7 +7072,7 @@
                         <button type="button" onclick="copyBTCAddress()" id="btcBtn" class="btc-donate-btn"
                             aria-label="Copy Bitcoin Address">
                             <!-- Exact Official Bitcoin Circle SVG -->
-                            <svg class="btc-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="btc-icon" width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true">
                                 <circle cx="16" cy="16" r="16" fill="#F7931A" />
                                 <path
@@ -6964,7 +7090,7 @@
                         <button type="button" onclick="copyETHAddress()" id="ethBtn" class="eth-donate-btn"
                             aria-label="Copy Ethereum Address">
                             <!-- Official Ethereum Diamond SVG -->
-                            <svg class="eth-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="eth-icon" width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true">
                                 <circle cx="16" cy="16" r="16" fill="#627EEA" />
                                 <path fill="#C0CBF6"
@@ -7087,7 +7213,7 @@
         syncSectionNavigation();
         mobileLayout.addEventListener("change", syncSectionNavigation);
     </script>
-    <script src="assets/devmatrix-ui.js"></script>
+    <script src="assets/devmatrix-ui.js?v=2"></script>
     <script>window.DEVMATRIX_ANALYTICS = { endpoint: null, counter: { base: "https://abacus.jasoncameron.dev", namespace: "devmatrix-zmillikin", key: "site-visits" } };</script>
     <script src="assets/devmatrix-automation.js"></script>
     <script src="assets/devmatrix-analytics.js"></script>
